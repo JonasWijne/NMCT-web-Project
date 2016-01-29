@@ -1,0 +1,90 @@
+@import "var"
+@import "bourbon/bourbon"
+@import "../../bower_components/neat/app/assets/stylesheets/neat"
+@import "../../bower_components/bitters/app/assets/stylesheets/base"
+@import "components/index"
+@import "responsive"
+
+.preload *
+  -webkit-transition: none !important
+  -moz-transition: none !important
+  -ms-transition: none !important
+  -o-transition: none !important
+
+*, *:before, *:after
+  box-sizing: border-box !important
+  font-family: $font-stack !important
+
+body, html
+  overflow-x: hidden
+  margin: 0
+  height: 100%
+  width: 100%
+
+body
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/sos.png")
+
+main.menu
+  @include media(min-width 320px max-width 860px, 1)
+    .container
+      margin-left: 24vw
+
+main
+  height: 100%
+
+  padding: 0
+  @include outer-container
+  aside
+    @include span-columns(2)
+
+  .container
+
+    transition: all linear 1s
+    @include media(min-width 320px max-width 860px, 1)
+      @include span-columns(1)
+      @include omega
+      position: relative
+      padding-left: 10vw
+
+    @include span-columns(10)
+
+    header
+      h1
+        margin: 0
+        font-size: 3em
+        height: 100%
+        line-height: 10vh
+        text-align: center
+        vertical-align: middle
+      background-color: mix($primary-color, transparent, 20%)
+      @include media(min-width 320px max-width 860px, 1)
+        height: 10vh
+
+    section.main
+      width: 100%
+      //background-color: mix($secondary-color, transparent, 20%)
+      @include media(min-width 320px max-width 860px, 1)
+        height: 90vh
+      height: 80vh
+      overflow: hidden
+
+body
+
+
+  footer
+    @include media(min-width 320px max-width 860px, 1)
+      display: none
+    background-color: transparentize(grey, 0.6)
+    width: 100%
+    height: calc(10vh + 1px)
+
+    position: fixed
+    bottom: 0
+    .container
+      @include outer-container
+      height: 100%
+      p
+        width: 100%
+        line-height: 10vh
+        text-align: center
+        vertical-align: middle

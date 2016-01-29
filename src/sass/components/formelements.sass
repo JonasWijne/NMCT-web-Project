@@ -1,0 +1,80 @@
+@mixin standard-input()
+  height: 2em
+  transition: all 0.2s ease-in-out
+  text-transform: uppercase
+  @include media(min-width 320px max-width 860px, 3)
+
+    font-size: 1em
+
+  font-size: 1.5em
+  border: 0 solid transparent
+  margin-bottom: 1.5em
+  outline: 0
+  padding: 0.3em 1em
+
+fieldset
+  border: 0.15em solid darken($primary-color, 7%)
+  padding: 0.5em
+  legend
+    font-family: $font-stack
+    text-transform: uppercase
+    font-size: 1.5em
+
+#{$all-buttons}, #{$all-text-inputs}
+  @include standard-input
+  border-radius: 0
+
+#{$all-buttons}
+  color: $secondary-font-color
+  background: $primary-color
+  border-bottom: 0.15em solid darken($primary-color, 20%)
+  &:hover, &:focus
+    background: darken($primary-color, 3%)
+
+  &:active
+    background: darken($primary-color, 7%)
+    border-color: $secondary-color
+
+#{$all-text-inputs}
+  height: 2em
+  border: 0.15em solid $primary-color
+  padding: 0.3em
+
+  &:hover
+    border: 0.15em solid darken($primary-color, 7%)
+
+  &:active, &:focus
+    border-color: $secondary-color
+    box-shadow: inset 0 0 0 transparent
+
+textarea
+  height: auto
+  resize: vertical
+.burger_menu
+  @include media(min-width 320px max-width 860px, 3)
+    display: block
+  font-family: "FontAwesome" !important
+  display: none
+  font-size: 5vw
+  position: absolute
+  right: 3vw
+  top: 3vw
+  cursor: pointer
+.searchbox
+  position: relative
+  .searchinput
+    padding-right: 2em
+
+  .searchsubmit
+    font-family: "FontAwesome" !important
+
+    position: absolute
+    padding: 0
+    margin: 0
+    top: 0.14em
+    right: 0.14em
+    width: 2em
+    height: calc(2em - 0.270em)
+    border: $primary-color
+    &:hover
+      background: $primary-color

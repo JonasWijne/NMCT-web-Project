@@ -1,0 +1,43 @@
+main.menu
+  @include media(min-width 320px max-width 860px, 1)
+    aside
+      margin-left: 0 !important
+      transition: margin linear 0.3s
+      *:not(.burger_menu)
+        transition: opacity linear 0.3s
+
+        opacity: 1
+      .burger_menu
+        transition: all linear 0.3s
+        font-size: 5vw
+        right: 3vw
+        top: 3vw
+
+
+aside
+  transition: margin linear 1s
+  h2
+    font-size: 1.5em
+  @include media(min-width 320px max-width 860px, 1)
+    *:not(.burger_menu)
+      transition: opacity linear 1s
+      //display: none
+      opacity: 0
+    .burger_menu
+      transition: all linear 1s
+      z-index: 100
+      font-size: 15vw
+      right: 9vw
+      top: 3vw
+
+
+    width: 54vw !important
+    margin-left: -24vw !important
+    padding: 5vw
+    padding-right: 10vw !important
+    position: fixed
+    @include omega
+
+    z-index: 10
+    height: 100vh
+    background: $secondary-color

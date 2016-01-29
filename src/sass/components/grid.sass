@@ -1,0 +1,69 @@
+.grid-enter
+  transition: 5s linear all
+  opacity: 0
+.grid-enter.grid-enter-active
+  opacity: 1
+
+.grid-item-content
+  position: relative
+
+.grid
+  width: 100%
+  .grid-item
+    @include media(min-width 320px max-width 860px, 3)
+      max-width: calc((100% - 10px) /3)
+    max-width: calc((100% - 10px)/4)
+    padding: 0 2px 4px 2px
+    img
+      width: 100%
+      vertical-align: middle
+    &:hover
+      .overlay
+        z-index: 5
+        opacity: 1
+    &.selected
+      .overlay
+        opacity: 1
+        border: $primary-border-width solid $primary-color
+        z-index: 5
+        .overlay-content
+          .check
+            opacity: 1
+            left: 15px
+            bottom: -100px
+    .overlay
+      border: 0px solid $primary-color
+      width: 100%
+      height: 100%
+      position: absolute
+      text-align: center
+      opacity: 0
+      transition: border .25s ease, opacity .25s ease
+
+      .overlay-content
+        overflow: hidden
+        width: 100%
+        height: 100%
+        position: relative
+        .check
+          transition: all .25s ease
+          background-color: $primary-color
+          transform: rotate(-45deg) translateY(-5em) translateX(-5em) scale(1)
+          position: absolute
+          width: 100px
+          height: 100px
+          transform-origin: 0 0
+          overflow: hidden
+          text-decoration: none
+          left: -100px
+          bottom: -200px
+          opacity: 0
+          i
+            position: absolute
+            transform: rotate(45deg)
+            right: 6px
+            top: 63px
+            font-size: 16px
+            color: $secondary-font-color
+            &:before
+              font: normal normal normal 14px/1 FontAwesome !important
