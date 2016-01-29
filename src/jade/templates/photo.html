@@ -1,0 +1,20 @@
+<script id="template_photo" type="text/html">
+    {{#each photos}}
+    <div class="grid-item" style="display: none">
+        <div class="grid-item-content">
+
+            <div class="overlay">
+                <div class="overlay-content">
+                    <div class="check">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </div>
+
+
+            </div>
+            <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="">
+        </div>
+    </div>
+    {{/each}}
+
+</script>

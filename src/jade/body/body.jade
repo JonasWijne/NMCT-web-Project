@@ -1,0 +1,42 @@
+main
+    aside
+        i.burger_menu 
+        // fa-bars
+        .search(ng-controller="search")
+            h2 search
+            form(ng-submit="search()")
+                .searchbox
+                    input(type="text" , name="search_box" ng-model="search_input" placeholder="search" ).searchinput
+                    input(type="submit" , value="" ).searchsubmit
+                    //fa-search
+        .save(ng-controller="save")
+            div
+                h2 save
+
+
+            form(ng-submit="save()")
+                input(type="submit" , value="save" )
+            .selected
+
+
+    .container
+        header
+            h1 Flickr to Drive
+
+        section.main(ng-controller="grid",ng-nicescroll, nice-option="{cursorcolor: '#9B59B6',cursorwidth: '8px',cursorborder: '0px solid transparent',cursorborderradius: '0'}")
+            .grid
+                .grid-item(ng-show="photos",ng-repeat="photo in photos",ng-click="selectitem()",ng-class="{selected: photo.selected}")
+                    include grid-item
+                .sk-cube-grid(ng-hide="photos")
+                    .sk-cube.sk-cube1
+                    .sk-cube.sk-cube2
+                    .sk-cube.sk-cube3
+                    .sk-cube.sk-cube4
+                    .sk-cube.sk-cube5
+                    .sk-cube.sk-cube6
+                    .sk-cube.sk-cube7
+                    .sk-cube.sk-cube8
+                    .sk-cube.sk-cube9
+footer
+    .container
+        p jonas wijne © NMCT

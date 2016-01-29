@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="components/css/spinkit.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="css/screen.css">
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="components/flickrapi.dev.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.0.0/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pubsub-js/1.5.3/pubsub.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="components/pubsub.min.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="search-container">
+                <div>
+                    <h2>menu</h2>
+                </div>
+                <br>
+                <div id="search">
+                    <form>
+                        <input type="text" placeholder="search">
+
+                        <br>
+                        <input type="button" value="get photos">
+
+                    </form>
+                </div>
+                <div>
+                    <div id="scroll-selected" class="selected-container scrollbar  mCustomScrollbar" data-mcs-theme="minimal-dark">
+                        <div class="derp">
+                            <div id="selected-out">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <header>
+                <h1>Flikr to Drive</h1>
+            </header>
+            <main id="scroll-main" class="scrollbar mCustomScrollbar" data-mcs-theme="inset-3-dark">
+                <div class="main-grid" id="grid">
+
+                </div>
+            </main>
+            <footer>
+                ©2015 jonas wijne
+            </footer>
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- To Do -->
+<!--
+-compile all js files ( with gruntjs ??)
+
+
+
+
+
+
+
+
+
+-->
+
+
+<!--templates for handelbarsjs-->
+<script id="template_selected-old" type="text/html">
+
+    <div class="selected-grid row">
+        {{#each photos}}
+
+        <div class="col-md-4">
+            <div class="redsquare"></div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="pagination row">
+        {{#each page}}
+        <button>{{.}}</button>
+        {{/each}}
+    </div>
+
+</script>
+<script id="template_selected" type="text/html">
+    {{#each photos}}
+    <div class="col-md-4">
+        <div class="redsquare"></div>
+    </div>
+    {{/each}}
+</script>
+<script id="template_photo_old" type="text/html">
+    <div class="row">
+        {{#each photos}}
+        <div class="col-md-4 img-grid">
+            <div class="thumbnail">
+                <div class="img_wrapper">
+                    <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        {{#moduloIf @key 3}}
+    </div>
+    <div class="row">
+        {{/moduloIf}}
+        {{/each}}
+    </div>
+</script>
+<script id="template_photo" type="text/html">
+
+
+    {{#each photos}}
+    <div class="grid-item" style="display: none">
+        <div class="grid-item-content">
+
+            <div class="overlay">
+                <div class="overlay-content">
+                    <div class="check">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </div>
+
+
+            </div>
+            <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg" alt="">
+        </div>
+    </div>
+    {{/each}}
+
+</script>
+<script id="template_loading" type="text/html">
+    <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    </div>
+
+</script>
+
+
+<!--lazy must fix !!!-->
+
+
+<!--main app model-->
+<script src="js/app.min.js"></script>
+<!--temp script for development-->
+<script>
+
+</script>
+</body>
+</html>
