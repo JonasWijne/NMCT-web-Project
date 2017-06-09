@@ -1,7 +1,7 @@
 app.service('flickrservice', function () {
 
     var flickr = new Flickr({
-        api_key: "bfbdfaaa7af3aee34ebb7b87f668e91a"
+        api_key: ""
     });
 
     var per_page = 25;
