@@ -1,6 +1,6 @@
 app.service('googleservice', function (imgsrc, selected) {
 
-    var CLIENT_ID = '923135994270-2jia7dviutguqd3188lf8dgie76jg2ef.apps.googleusercontent.com';
+    var CLIENT_ID = '';
 
     var SCOPES = ['https://www.googleapis.com/auth/drive'];
 
